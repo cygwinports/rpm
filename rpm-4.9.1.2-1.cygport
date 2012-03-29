@@ -1,0 +1,36 @@
+inherit python
+
+DESCRIPTION="Red Hat Package Manager"
+HOMEPAGE="http://www.rpm.org/"
+SRC_URI="http://rpm.org/releases/rpm-${PV[1]}.${PV[2]}.x/${P}.tar.bz2"
+PATCH_URI="
+	4.9-autoreconf.patch
+	4.9-cygwin.patch
+	4.9-no-undefined.patch
+	4.9-python.patch
+"
+
+PKG_NAMES="rpm rpm-devel python-rpm"
+rpm_CONTENTS="bin/ usr/bin/ usr/lib/rpm* usr/share/"
+rpm_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+python_rpm_CONTENTS=${PYTHON_SITELIB#/}
+
+CPPFLAGS+=" $(pkg-config --cflags-only-I nss)"
+
+CYGCONF_ARGS="
+	--disable-static
+	--enable-python
+	--with-external-db
+	--with-hackingdocs
+	--with-lua
+	--without-acl
+	--without-cap
+	--without-dmalloc
+	--without-selinux
+"
+
+src_install() {
+	cd ${B}
+	cyginstall
+	python_optimize
+}

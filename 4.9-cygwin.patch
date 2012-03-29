@@ -1,0 +1,81 @@
+--- origsrc/rpm-4.9.1.2/misc/fts.c	2011-07-12 06:28:13.000000000 -0500
++++ src/rpm-4.9.1.2/misc/fts.c	2012-03-29 18:03:42.949743900 -0500
+@@ -61,6 +61,12 @@ static char sccsid[] = "@(#)fts.c	8.6 (B
+ #   define _STAT_VER		0
+ #   define __fxstat64(_stat_ver, _fd, _sbp) fstat64((_fd), (_sbp))
+ #endif
++#if defined(__CYGWIN__)
++#   define __errno_location()	(&errno)
++#   define stat64		stat
++#   define _STAT_VER		0
++#   define __fxstat64(_stat_ver, _fd, _sbp)	fstat((_fd), (_sbp))
++#endif
+ #include "system.h"
+ #include <stdlib.h>
+ #include <string.h>
+--- origsrc/rpm-4.9.1.2/misc/fts.h	2011-07-12 06:28:13.000000000 -0500
++++ src/rpm-4.9.1.2/misc/fts.h	2012-03-29 18:00:59.437391500 -0500
+@@ -57,7 +57,7 @@
+ # define _D_EXACT_NAMLEN(d) ((d)->d_reclen)
+ #endif
+ 
+-#if defined(__APPLE__)
++#if defined(__APPLE__) || defined(__CYGWIN__)
+ # define _D_EXACT_NAMLEN(d) (strlen((d)->d_name))
+ #endif
+ 
+--- origsrc/rpm-4.9.1.2/rpmdb.c	2011-07-15 03:17:57.000000000 -0500
++++ src/rpm-4.9.1.2/rpmdb.c	2012-03-29 18:24:41.446725800 -0500
+@@ -5,7 +5,7 @@
+ #include "cliutils.h"
+ #include "debug.h"
+ 
+-#if !defined(__GLIBC__) && !defined(__APPLE__)
++#if !defined(__GLIBC__) && !defined(__APPLE__) && !defined(__CYGWIN__)
+ char ** environ = NULL;
+ #endif
+ 
+--- origsrc/rpm-4.9.1.2/rpmkeys.c	2011-07-12 06:28:13.000000000 -0500
++++ src/rpm-4.9.1.2/rpmkeys.c	2012-03-29 18:22:47.763223400 -0500
+@@ -5,7 +5,7 @@
+ #include "cliutils.h"
+ #include "debug.h"
+ 
+-#if !defined(__GLIBC__) && !defined(__APPLE__)
++#if !defined(__GLIBC__) && !defined(__APPLE__) && !defined(__CYGWIN__)
+ char ** environ = NULL;
+ #endif
+ 
+--- origsrc/rpm-4.9.1.2/rpmsign.c	2011-07-15 04:32:41.000000000 -0500
++++ src/rpm-4.9.1.2/rpmsign.c	2012-03-29 18:23:01.009981100 -0500
+@@ -8,7 +8,7 @@
+ #include "cliutils.h"
+ #include "debug.h"
+ 
+-#if !defined(__GLIBC__) && !defined(__APPLE__)
++#if !defined(__GLIBC__) && !defined(__APPLE__) && !defined(__CYGWIN__)
+ char ** environ = NULL;
+ #endif
+ 
+--- origsrc/rpm-4.9.1.2/sign/rpmgensig.c	2011-07-15 04:32:41.000000000 -0500
++++ src/rpm-4.9.1.2/sign/rpmgensig.c	2012-03-29 18:23:14.903775800 -0500
+@@ -23,7 +23,7 @@
+ 
+ #include "debug.h"
+ 
+-#if !defined(__GLIBC__) && !defined(__APPLE__)
++#if !defined(__GLIBC__) && !defined(__APPLE__) && !defined(__CYGWIN__)
+ char ** environ = NULL;
+ #endif
+ 
+--- origsrc/rpm-4.9.1.2/system.h	2011-07-12 06:28:13.000000000 -0500
++++ src/rpm-4.9.1.2/system.h	2012-03-29 18:05:20.580328000 -0500
+@@ -114,7 +114,7 @@ typedef	char * security_context_t;
+ #define	__progname	__assert_program_name
+ #endif
+ #define	setprogname(pn)
+-#else
++#elif !defined(__CYGWIN__)
+ #define	__progname	program_name
+ #define	setprogname(pn)	\
+   { if ((__progname = strrchr(pn, '/')) != NULL) __progname++; \

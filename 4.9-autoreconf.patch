@@ -1,0 +1,13 @@
+--- origsrc/rpm-4.9.1.2/configure.ac	2011-09-29 07:15:11.000000000 -0500
++++ src/rpm-4.9.1.2/configure.ac	2012-03-29 17:43:37.684806600 -0500
+@@ -857,10 +857,6 @@ AC_SUBST(RPMCONFIGDIR)
+ 
+ AC_SUBST(OBJDUMP)
+ 
+-if test "$with_external_db" = no; then
+-    AC_CONFIG_SUBDIRS(db3)
+-fi
+-
+ AM_CONDITIONAL([WITH_INTERNAL_DB],[test "$with_external_db" = no])
+ AM_CONDITIONAL([DOXYGEN],[test "$DOXYGEN" != no])
+ AM_CONDITIONAL([HACKINGDOCS],[test "$with_hackingdocs" = yes])

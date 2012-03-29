@@ -1,0 +1,92 @@
+--- origsrc/rpm-4.9.1.2/build/Makefile.am	2011-07-15 04:36:26.000000000 -0500
++++ src/rpm-4.9.1.2/build/Makefile.am	2012-03-29 17:39:01.334000300 -0500
+@@ -16,7 +16,7 @@ librpmbuild_la_SOURCES = \
+ 	parsePolicies.c policies.c \
+ 	rpmbuild_internal.h rpmbuild_misc.h
+ 
+-librpmbuild_la_LDFLAGS = -version-info 2:1:0
++librpmbuild_la_LDFLAGS = -version-info 2:1:0 -no-undefined
+ librpmbuild_la_LIBADD = \
+ 	$(top_builddir)/lib/librpm.la \
+ 	$(top_builddir)/rpmio/librpmio.la \
+--- origsrc/rpm-4.9.1.2/lib/Makefile.am	2011-09-29 07:15:03.000000000 -0500
++++ src/rpm-4.9.1.2/lib/Makefile.am	2012-03-29 17:38:45.134073700 -0500
+@@ -38,7 +38,7 @@ librpm_la_SOURCES = \
+ 	rpmchroot.c rpmchroot.h \
+ 	rpmplugins.c rpmplugins.h rpmug.c rpmug.h
+ 
+-librpm_la_LDFLAGS = -version-info 2:2:0
++librpm_la_LDFLAGS = -version-info 2:2:0 -no-undefined
+ 
+ librpm_la_LIBADD = \
+ 	$(top_builddir)/rpmio/librpmio.la \
+--- origsrc/rpm-4.9.1.2/plugins/Makefile.am	2011-07-12 06:28:13.000000000 -0500
++++ src/rpm-4.9.1.2/plugins/Makefile.am	2012-03-29 17:38:33.388401900 -0500
+@@ -9,7 +9,7 @@ AM_CPPFLAGS += -DSYSCONFDIR="\"$(sysconf
+ AM_CPPFLAGS += -DLOCALSTATEDIR="\"$(localstatedir)\""
+ AM_CPPFLAGS += -DLIBRPMALIAS_FILENAME="\"rpmpopt-${VERSION}\""
+ 
+-AM_LDFLAGS = -avoid-version -module -shared
++AM_LDFLAGS = -avoid-version -module -shared -no-undefined
+ 
+ pluginsdir = $(libdir)/rpm-plugins
+ 
+--- origsrc/rpm-4.9.1.2/python/Makefile.am	2011-07-15 03:59:12.000000000 -0500
++++ src/rpm-4.9.1.2/python/Makefile.am	2012-03-29 17:39:43.282399600 -0500
+@@ -10,7 +10,7 @@ AM_CPPFLAGS += -I@WITH_PYTHON_INCLUDE@
+ pkgpyexec_LTLIBRARIES = _rpmmodule.la _rpmbmodule.la _rpmsmodule.la
+ pkgpyexec_DATA = rpm/__init__.py rpm/transaction.py
+ 
+-_rpmmodule_la_LDFLAGS = -module -avoid-version -shared
++_rpmmodule_la_LDFLAGS = -module -avoid-version -shared -no-undefined
+ _rpmmodule_la_LIBADD = \
+ 	$(top_builddir)/lib/librpm.la \
+ 	$(top_builddir)/rpmio/librpmio.la \
+@@ -30,7 +30,7 @@ _rpmmodule_la_SOURCES = rpmmodule.c rpms
+ 	rpmte-py.c rpmte-py.h \
+ 	rpmts-py.c rpmts-py.h
+ 
+-_rpmbmodule_la_LDFLAGS = -module -avoid-version -shared
++_rpmbmodule_la_LDFLAGS = -module -avoid-version -shared -no-undefined
+ _rpmbmodule_la_LIBADD = \
+ 	$(top_builddir)/build/librpmbuild.la \
+ 	$(top_builddir)/lib/librpm.la \
+@@ -40,7 +40,7 @@ _rpmbmodule_la_LIBADD = \
+ _rpmbmodule_la_SOURCES = rpmbmodule.c rpmsystem-py.h \
+ 	spec-py.c spec-py.h
+ 
+-_rpmsmodule_la_LDFLAGS = -module -avoid-version -shared
++_rpmsmodule_la_LDFLAGS = -module -avoid-version -shared -no-undefined
+ _rpmsmodule_la_LIBADD = \
+         $(top_builddir)/sign/librpmsign.la \
+         $(top_builddir)/lib/librpm.la \
+--- origsrc/rpm-4.9.1.2/rpmio/Makefile.am	2011-07-15 04:36:33.000000000 -0500
++++ src/rpm-4.9.1.2/rpmio/Makefile.am	2012-03-29 18:06:30.182309000 -0500
+@@ -17,7 +17,7 @@ librpmio_la_SOURCES = \
+ 	rpmstring.c rpmfileutil.c \
+ 	rpmkeyring.c
+ 
+-librpmio_la_LDFLAGS = -version-info 2:1:0
++librpmio_la_LDFLAGS = -version-info 2:1:0 -no-undefined
+ librpmio_la_LIBADD = \
+ 	../misc/libmisc.la \
+ 	@WITH_NSS_LIB@ \
+@@ -26,6 +26,7 @@ librpmio_la_LIBADD = \
+ 	@WITH_LIBELF_LIB@ \
+ 	@WITH_POPT_LIB@ \
+ 	@WITH_LZMA_LIB@ \
++	@LTLIBINTL@ \
+ 	-lpthread
+ 
+ if WITH_LUA
+--- origsrc/rpm-4.9.1.2/sign/Makefile.am	2011-07-15 04:36:45.000000000 -0500
++++ src/rpm-4.9.1.2/sign/Makefile.am	2012-03-29 17:40:14.380178300 -0500
+@@ -11,7 +11,7 @@ usrlibdir = $(libdir)
+ 
+ usrlib_LTLIBRARIES = librpmsign.la
+ librpmsign_la_SOURCES = rpmgensig.c
+-librpmsign_la_LDFLAGS = -version-info 0:1:0
++librpmsign_la_LDFLAGS = -version-info 0:1:0 -no-undefined
+ librpmsign_la_LIBADD = \
+ 	$(top_builddir)/lib/librpm.la \
+ 	$(top_builddir)/rpmio/librpmio.la \

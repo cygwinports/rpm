@@ -1,0 +1,150 @@
+--- origsrc/rpm-4.9.1.2/python/header-py.c	2011-07-15 04:32:41.000000000 -0500
++++ src/rpm-4.9.1.2/python/header-py.c	2012-03-29 18:34:00.695713000 -0500
+@@ -653,7 +653,7 @@ static char hdr_doc[] =
+ "";
+ 
+ PyTypeObject hdr_Type = {
+-	PyVarObject_HEAD_INIT(&PyType_Type, 0)
++	NULL,
+ 	"rpm.hdr",			/* tp_name */
+ 	sizeof(hdrObject),		/* tp_size */
+ 	0,				/* tp_itemsize */
+--- origsrc/rpm-4.9.1.2/python/rpmds-py.c	2011-07-15 04:32:41.000000000 -0500
++++ src/rpm-4.9.1.2/python/rpmds-py.c	2012-03-29 18:34:22.401954500 -0500
+@@ -343,7 +343,7 @@ static char rpmds_doc[] =
+ "";
+ 
+ PyTypeObject rpmds_Type = {
+-	PyVarObject_HEAD_INIT(&PyType_Type, 0)
++	NULL,
+ 	"rpm.ds",			/* tp_name */
+ 	sizeof(rpmdsObject),		/* tp_basicsize */
+ 	0,				/* tp_itemsize */
+--- origsrc/rpm-4.9.1.2/python/rpmfd-py.c	2011-07-15 04:32:41.000000000 -0500
++++ src/rpm-4.9.1.2/python/rpmfd-py.c	2012-03-29 18:34:29.136339700 -0500
+@@ -310,7 +310,7 @@ static PyGetSetDef rpmfd_getseters[] = {
+ };
+ 
+ PyTypeObject rpmfd_Type = {
+-	PyVarObject_HEAD_INIT(&PyType_Type, 0)
++	NULL,
+ 	"rpm.fd",			/* tp_name */
+ 	sizeof(rpmfdObject),		/* tp_size */
+ 	0,				/* tp_itemsize */
+--- origsrc/rpm-4.9.1.2/python/rpmfi-py.c	2011-07-15 03:59:12.000000000 -0500
++++ src/rpm-4.9.1.2/python/rpmfi-py.c	2012-03-29 18:34:35.385697100 -0500
+@@ -316,7 +316,7 @@ static char rpmfi_doc[] =
+ "";
+ 
+ PyTypeObject rpmfi_Type = {
+-	PyVarObject_HEAD_INIT(&PyType_Type, 0)
++	NULL,
+ 	"rpm.fi",			/* tp_name */
+ 	sizeof(rpmfiObject),		/* tp_basicsize */
+ 	0,				/* tp_itemsize */
+--- origsrc/rpm-4.9.1.2/python/rpmii-py.c	2011-07-15 04:32:41.000000000 -0500
++++ src/rpm-4.9.1.2/python/rpmii-py.c	2012-03-29 18:34:41.091023500 -0500
+@@ -104,7 +104,7 @@ static char rpmii_doc[] =
+ "";
+ 
+ PyTypeObject rpmii_Type = {
+-	PyVarObject_HEAD_INIT(&PyType_Type, 0)
++	NULL,
+ 	"rpm.ii",			/* tp_name */
+ 	sizeof(rpmiiObject),		/* tp_size */
+ 	0,				/* tp_itemsize */
+--- origsrc/rpm-4.9.1.2/python/rpmkeyring-py.c	2011-07-12 06:28:13.000000000 -0500
++++ src/rpm-4.9.1.2/python/rpmkeyring-py.c	2012-03-29 18:36:33.511453500 -0500
+@@ -51,7 +51,7 @@ static struct PyMethodDef rpmPubkey_meth
+ static char rpmPubkey_doc[] = "";
+ 
+ PyTypeObject rpmPubkey_Type = {
+-	PyVarObject_HEAD_INIT(&PyType_Type, 0)
++	NULL,
+ 	"rpm.pubkey",			/* tp_name */
+ 	sizeof(rpmPubkeyObject),	/* tp_size */
+ 	0,				/* tp_itemsize */
+@@ -132,7 +132,7 @@ static char rpmKeyring_doc[] =
+ "";
+ 
+ PyTypeObject rpmKeyring_Type = {
+-	PyVarObject_HEAD_INIT(&PyType_Type, 0)
++	NULL,
+ 	"rpm.keyring",			/* tp_name */
+ 	sizeof(rpmKeyringObject),	/* tp_size */
+ 	0,				/* tp_itemsize */
+--- origsrc/rpm-4.9.1.2/python/rpmmi-py.c	2011-07-15 03:59:12.000000000 -0500
++++ src/rpm-4.9.1.2/python/rpmmi-py.c	2012-03-29 18:34:54.330780700 -0500
+@@ -165,7 +165,7 @@ static char rpmmi_doc[] =
+ "";
+ 
+ PyTypeObject rpmmi_Type = {
+-	PyVarObject_HEAD_INIT(&PyType_Type, 0)
++	NULL,
+ 	"rpm.mi",			/* tp_name */
+ 	sizeof(rpmmiObject),		/* tp_size */
+ 	0,				/* tp_itemsize */
+--- origsrc/rpm-4.9.1.2/python/rpmps-py.c	2011-07-15 03:59:12.000000000 -0500
++++ src/rpm-4.9.1.2/python/rpmps-py.c	2012-03-29 18:34:59.792093100 -0500
+@@ -73,7 +73,7 @@ static void rpmprob_dealloc(rpmProblemOb
+ }
+ 
+ PyTypeObject rpmProblem_Type = {
+-	PyVarObject_HEAD_INIT(&PyType_Type, 0)
++	NULL,
+ 	"rpm.prob",			/* tp_name */
+ 	sizeof(rpmProblemObject),		/* tp_basicsize */
+ 	0,				/* tp_itemsize */
+--- origsrc/rpm-4.9.1.2/python/rpmtd-py.c	2011-07-12 06:28:13.000000000 -0500
++++ src/rpm-4.9.1.2/python/rpmtd-py.c	2012-03-29 18:35:05.385413000 -0500
+@@ -159,7 +159,7 @@ static PyGetSetDef rpmtd_getseters[] = {
+ };
+ 
+ PyTypeObject rpmtd_Type = {
+-	PyVarObject_HEAD_INIT(&PyType_Type, 0)
++	NULL,
+ 	"rpm.td",			/* tp_name */
+ 	sizeof(rpmtdObject),		/* tp_size */
+ 	0,				/* tp_itemsize */
+--- origsrc/rpm-4.9.1.2/python/rpmte-py.c	2011-07-15 04:32:41.000000000 -0500
++++ src/rpm-4.9.1.2/python/rpmte-py.c	2012-03-29 18:35:10.976732800 -0500
+@@ -250,7 +250,7 @@ static char rpmte_doc[] =
+ "";
+ 
+ PyTypeObject rpmte_Type = {
+-	PyVarObject_HEAD_INIT(&PyType_Type, 0)
++	NULL,
+ 	"rpm.te",			/* tp_name */
+ 	sizeof(rpmteObject),		/* tp_size */
+ 	0,				/* tp_itemsize */
+--- origsrc/rpm-4.9.1.2/python/rpmts-py.c	2011-07-15 04:32:41.000000000 -0500
++++ src/rpm-4.9.1.2/python/rpmts-py.c	2012-03-29 18:35:16.980076200 -0500
+@@ -861,7 +861,7 @@ static PyGetSetDef rpmts_getseters[] = {
+ };
+ 
+ PyTypeObject rpmts_Type = {
+-	PyVarObject_HEAD_INIT(&PyType_Type, 0)
++	NULL,
+ 	"rpm.ts",			/* tp_name */
+ 	sizeof(rpmtsObject),		/* tp_size */
+ 	0,				/* tp_itemsize */
+--- origsrc/rpm-4.9.1.2/python/spec-py.c	2011-07-12 06:28:13.000000000 -0500
++++ src/rpm-4.9.1.2/python/spec-py.c	2012-03-29 18:36:59.230924600 -0500
+@@ -61,7 +61,7 @@ static PyGetSetDef specpkg_getseters[] =
+ };
+ 
+ PyTypeObject specPkg_Type = {
+-	PyVarObject_HEAD_INIT(&PyType_Type, 0)
++	NULL,
+ 	"rpm.specpkg",			/* tp_name */
+ 	sizeof(specPkgObject),		/* tp_size */
+ 	0,				/* tp_itemsize */
+@@ -241,7 +241,7 @@ static struct PyMethodDef spec_methods[]
+ };
+ 
+ PyTypeObject spec_Type = {
+-    PyVarObject_HEAD_INIT(&PyType_Type, 0)
++    NULL,
+     "rpm.spec",               /*tp_name*/
+     sizeof(specObject),        /*tp_basicsize*/
+     0,                         /*tp_itemsize*/
