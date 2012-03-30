@@ -34,3 +34,5 @@ src_install() {
 	cyginstall
 	python_optimize
 }
+
+KEEP_LA_FILES="none"

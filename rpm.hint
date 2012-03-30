@@ -1,0 +1,10 @@
+category: Devel
+requires: bzip2 cpio curl db4.8 diffutils file findutils gnupg grep gzip libbz2_1 libdb4.8 libgcc1 libint8 liblzma5 libnss3 libpopt0 libssp0 lua patch sed unzip xz zlib0
+sdesc: "RPM Package Manager"
+ldesc: "The RPM Package Manager (RPM) is a powerful command line driven 
+package management system capable of installing, uninstalling, 
+verifying, querying, and updating computer software packages. Each 
+software package consists of an archive of files along with information 
+about the package like its version, a description, and the like. There 
+is also a library API, permitting advanced developers to manage such 
+transactions from programming languages such as C or Python."
