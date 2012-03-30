@@ -5,7 +5,7 @@
  
  PyTypeObject hdr_Type = {
 -	PyVarObject_HEAD_INIT(&PyType_Type, 0)
-+	NULL,
++	PyVarObject_HEAD_INIT(NULL, 0)
  	"rpm.hdr",			/* tp_name */
  	sizeof(hdrObject),		/* tp_size */
  	0,				/* tp_itemsize */
@@ -16,7 +16,7 @@
  
  PyTypeObject rpmds_Type = {
 -	PyVarObject_HEAD_INIT(&PyType_Type, 0)
-+	NULL,
++	PyVarObject_HEAD_INIT(NULL, 0)
  	"rpm.ds",			/* tp_name */
  	sizeof(rpmdsObject),		/* tp_basicsize */
  	0,				/* tp_itemsize */
@@ -27,7 +27,7 @@
  
  PyTypeObject rpmfd_Type = {
 -	PyVarObject_HEAD_INIT(&PyType_Type, 0)
-+	NULL,
++	PyVarObject_HEAD_INIT(NULL, 0)
  	"rpm.fd",			/* tp_name */
  	sizeof(rpmfdObject),		/* tp_size */
  	0,				/* tp_itemsize */
@@ -38,7 +38,7 @@
  
  PyTypeObject rpmfi_Type = {
 -	PyVarObject_HEAD_INIT(&PyType_Type, 0)
-+	NULL,
++	PyVarObject_HEAD_INIT(NULL, 0)
  	"rpm.fi",			/* tp_name */
  	sizeof(rpmfiObject),		/* tp_basicsize */
  	0,				/* tp_itemsize */
@@ -49,7 +49,7 @@
  
  PyTypeObject rpmii_Type = {
 -	PyVarObject_HEAD_INIT(&PyType_Type, 0)
-+	NULL,
++	PyVarObject_HEAD_INIT(NULL, 0)
  	"rpm.ii",			/* tp_name */
  	sizeof(rpmiiObject),		/* tp_size */
  	0,				/* tp_itemsize */
@@ -60,7 +60,7 @@
  
  PyTypeObject rpmPubkey_Type = {
 -	PyVarObject_HEAD_INIT(&PyType_Type, 0)
-+	NULL,
++	PyVarObject_HEAD_INIT(NULL, 0)
  	"rpm.pubkey",			/* tp_name */
  	sizeof(rpmPubkeyObject),	/* tp_size */
  	0,				/* tp_itemsize */
@@ -69,7 +69,7 @@
  
  PyTypeObject rpmKeyring_Type = {
 -	PyVarObject_HEAD_INIT(&PyType_Type, 0)
-+	NULL,
++	PyVarObject_HEAD_INIT(NULL, 0)
  	"rpm.keyring",			/* tp_name */
  	sizeof(rpmKeyringObject),	/* tp_size */
  	0,				/* tp_itemsize */
@@ -80,7 +80,7 @@
  
  PyTypeObject rpmmi_Type = {
 -	PyVarObject_HEAD_INIT(&PyType_Type, 0)
-+	NULL,
++	PyVarObject_HEAD_INIT(NULL, 0)
  	"rpm.mi",			/* tp_name */
  	sizeof(rpmmiObject),		/* tp_size */
  	0,				/* tp_itemsize */
@@ -91,7 +91,7 @@
  
  PyTypeObject rpmProblem_Type = {
 -	PyVarObject_HEAD_INIT(&PyType_Type, 0)
-+	NULL,
++	PyVarObject_HEAD_INIT(NULL, 0)
  	"rpm.prob",			/* tp_name */
  	sizeof(rpmProblemObject),		/* tp_basicsize */
  	0,				/* tp_itemsize */
@@ -102,7 +102,7 @@
  
  PyTypeObject rpmtd_Type = {
 -	PyVarObject_HEAD_INIT(&PyType_Type, 0)
-+	NULL,
++	PyVarObject_HEAD_INIT(NULL, 0)
  	"rpm.td",			/* tp_name */
  	sizeof(rpmtdObject),		/* tp_size */
  	0,				/* tp_itemsize */
@@ -113,7 +113,7 @@
  
  PyTypeObject rpmte_Type = {
 -	PyVarObject_HEAD_INIT(&PyType_Type, 0)
-+	NULL,
++	PyVarObject_HEAD_INIT(NULL, 0)
  	"rpm.te",			/* tp_name */
  	sizeof(rpmteObject),		/* tp_size */
  	0,				/* tp_itemsize */
@@ -124,7 +124,7 @@
  
  PyTypeObject rpmts_Type = {
 -	PyVarObject_HEAD_INIT(&PyType_Type, 0)
-+	NULL,
++	PyVarObject_HEAD_INIT(NULL, 0)
  	"rpm.ts",			/* tp_name */
  	sizeof(rpmtsObject),		/* tp_size */
  	0,				/* tp_itemsize */
@@ -135,7 +135,7 @@
  
  PyTypeObject specPkg_Type = {
 -	PyVarObject_HEAD_INIT(&PyType_Type, 0)
-+	NULL,
++	PyVarObject_HEAD_INIT(NULL, 0)
  	"rpm.specpkg",			/* tp_name */
  	sizeof(specPkgObject),		/* tp_size */
  	0,				/* tp_itemsize */
@@ -144,7 +144,7 @@
  
  PyTypeObject spec_Type = {
 -    PyVarObject_HEAD_INIT(&PyType_Type, 0)
-+    NULL,
++    PyVarObject_HEAD_INIT(NULL, 0)
      "rpm.spec",               /*tp_name*/
      sizeof(specObject),        /*tp_basicsize*/
      0,                         /*tp_itemsize*/
