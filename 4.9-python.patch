@@ -1,3 +1,14 @@
+--- origsrc/rpm-4.9.1.2/python/Makefile.am	2012-03-29 23:44:56.767779300 -0500
++++ src/rpm-4.9.1.2/python/Makefile.am	2012-03-30 02:45:13.934485800 -0500
+@@ -8,7 +8,7 @@ AM_CPPFLAGS += -I$(top_srcdir)/misc
+ AM_CPPFLAGS += -I@WITH_PYTHON_INCLUDE@
+ 
+ pkgpyexec_LTLIBRARIES = _rpmmodule.la _rpmbmodule.la _rpmsmodule.la
+-pkgpyexec_DATA = rpm/__init__.py rpm/transaction.py
++pkgpyexec_PYTHON = rpm/__init__.py rpm/transaction.py
+ 
+ _rpmmodule_la_LDFLAGS = -module -avoid-version -shared -no-undefined
+ _rpmmodule_la_LIBADD = \
 --- origsrc/rpm-4.9.1.2/python/header-py.c	2011-07-15 04:32:41.000000000 -0500
 +++ src/rpm-4.9.1.2/python/header-py.c	2012-03-29 18:34:00.695713000 -0500
 @@ -653,7 +653,7 @@ static char hdr_doc[] =

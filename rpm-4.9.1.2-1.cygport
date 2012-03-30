@@ -29,10 +29,4 @@ CYGCONF_ARGS="
 	--without-selinux
 "
 
-src_install() {
-	cd ${B}
-	cyginstall
-	python_optimize
-}
-
 KEEP_LA_FILES="none"
